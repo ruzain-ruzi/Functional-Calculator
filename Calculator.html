@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Calculator</title>
+</head>
+<body>
+	<form>
+		<table align="center">
+			<caption>CALCULATOR</caption>
+			<tr>
+				<td>
+					<input id="display" type="text" name="display" readonly>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="button" id="ce" value="CE" onclick="clr()">
+					<input type="button" id="clear" value="C" onclick="clr()">
+					<button type="button" id="delete" onclick="back()">
+					<i class="fa-solid fa-delete-left" value="<"></i></button>
+					<button type="button" id="divide" value="/" onclick="dis('/')">
+					<i class="fa-solid fa-divide"></i></button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="button" id="seven" value="7" onclick="dis(7)">
+					<input type="button" id="eight" value="8" onclick="dis(8)">
+					<input type="button" id="nine" value="9" onclick="dis(9)">
+					<button type="button" id="plus" value="*" onclick="dis('*')">
+					<i class="fa-solid fa-xmark"></i></button>
+				</td>
+			</tr><tr>
+				<td>
+					<input type="button" id="four" value="4" onclick="dis(4)">
+					<input type="button" id="five" value="5" onclick="dis(5)">
+					<input type="button" id="six" value="6" onclick="dis(6)">
+					<button type="button" id="minus" value="-" onclick="dis('-')">
+					<i class="fa-solid fa-minus"></i></button>
+				</td>
+			</tr><tr>
+				<td>
+					<input type="button" id="one" value="1" onclick="dis(1)">
+					<input type="button" id="two" value="2" onclick="dis(2)">
+					<input type="button" id="three" value="3" onclick="dis(3)">
+					<button type="button" id="plus" value="+" onclick="dis('+')">
+					<i class="fa-solid fa-plus"></i></button>
+				</td>
+			</tr><tr>
+				<td>
+					<input type="button" id="dzero" value="00" onclick="dis('00')">
+					<input type="button" id="zero" value="0" onclick="dis(0)">
+					<input type="button" id="dot" value="." onclick="dis('.')">
+					<button type="button" id="equal" onclick="solve()">
+					<i class="fa-solid fa-equals"></i></button>
+				</td>
+			</tr>
+		</table>
+	</form>
+	
+<!-- javascript -->
+
+	<script type="text/javascript">
+	let display = document.getElementById('display');
+		function dis(val){
+			display.value += val;
+			display.style.textAlign = "right";
+			display.style.color = "white";
+			display.style.fontSize = "20px";
+			display.style.textShadow = "2px 2px black";
+		}
+		function solve(){
+			let x = display.value;
+			let y = eval(x);
+			display.value = y;
+			display.style.color = "black";
+			display.style.textAlign = "center";
+			display.style.fontSize = "25px";
+			display.style.textShadow = "2px 2px white";
+		}
+		function clr(){
+			display.value = "";
+			display.style.color = "white";
+			display.style.fontSize = "20px";
+			display.style.textAlign = "right";
+			display.style.textShadow = "2px 2px black";
+		}
+		function back(){
+	    	display.value = display.value.slice(0, -1);
+	    	display.style.textAlign = "right";
+	    	display.style.color = "white";
+			display.style.fontSize = "20px";
+			display.style.textShadow = "2px 2px black";
+		}
+
+	</script>
+
+<!-- CSS -->
+
+	<style type="text/css">
+		@font-face {
+	    font-family: "digital7";
+	    src: url("C:/Users/ruzai/Downloads/digital-7 (mono).ttf");
+		}
+		caption{
+			text-shadow: 2px 2px black;
+			color: white;
+			letter-spacing: 5px;
+			font-weight: bold;
+			font-family: arial;
+			font-size: 25px;
+			padding: 4px;
+		}
+		body{
+			user-select: none;
+			background: rgb(125,69,180);
+			background: linear-gradient(90deg, rgba(125,69,180,1) 2%, rgba(171,35,101,1) 51%, rgba(200,160,81,1) 100%);
+			padding: 80px;
+		}
+		table{
+			text-align: center;
+		    backdrop-filter: blur(19.6px);
+		    box-shadow: 0 2px 10px rgb(0 0 0 / 10%), 0 10px 15px rgb(0 0 0 / 20%);
+		    box-sizing: border-box;
+		    background-image: linear-gradient(45deg, rgba(32,152,255,0.5), rgba(50,249,176,0.5));
+		    min-height: 70px;
+		    mix-blend-mode: hard-light;
+			padding: 10px;
+			border: 0px solid;
+			border-radius: 8px;
+		}
+		
+		input[type="text"]{
+			color: white;
+			font-family: digital7;
+			letter-spacing: 2px;
+			font-weight: 1000;
+			font-size: 20px;
+			text-shadow: 2px 2px black;
+			padding-left: 8px;
+			padding-right: 8px;
+			text-align: right;
+			border: 0px solid;
+			border-radius: 6px;
+		    box-shadow: 0 2px 10px rgb(0 0 0 / 10%), 0 10px 15px rgb(0 0 0 / 20%);
+		    box-sizing: border-box;
+		    background-image: linear-gradient(to left, rgba(32,152,255,1), rgba(50,249,176,1));
+			height: 30px;
+			width: 100%;
+			margin-bottom: 10px;
+		}
+		input[type="button"],button{
+			font-family: cascadia code;
+			font-weight: bold;
+			background: linear-gradient(skyblue,lightgreen);
+		    box-shadow: 0 2px 10px rgb(0 0 0 / 10%), 0 10px 15px rgb(0 0 0 / 20%);
+			border: 0px solid;
+			border-radius: 6px;
+			margin: 4px;
+			padding: 10px;
+			width: 45px;
+			height: 45px;
+			transition: 0.3s;
+		}
+		input[type="button"]:hover,button:hover{
+			font-size: 20px;
+			color: white;
+			cursor: pointer;
+			background: linear-gradient(darkgreen,darkcyan);
+		}
+
+	</style>
+	<script src="https://kit.fontawesome.com/b16517885d.js" crossorigin="anonymous"></script>
+</body>
+</html>
