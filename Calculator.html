@@ -170,6 +170,21 @@
 			cursor: pointer;
 			background: linear-gradient(darkgreen,darkcyan);
 		}
+		
+		@media only screen and (min-width: 300px) {
+			  /* For mobile: */
+			body{padding: 0px; margin-top: 50px;}
+			}
+		@media only screen and (min-width: 750px) {
+			  /* For tablet: */
+			body{padding: 0px; margin-top: 50px;}
+			}
+		@media only screen and (max-width: 280px) {
+			  /* For foldable: */
+			input[type="button"]{width: 35px; height: 35px;}
+			button{width: 35px; height: 35px;}
+			body{padding: 0px; margin-top: 30px;}
+			}
 
 	</style>
 	<script src="https://kit.fontawesome.com/b16517885d.js" crossorigin="anonymous"></script>
